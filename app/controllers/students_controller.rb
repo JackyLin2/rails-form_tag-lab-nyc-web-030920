@@ -5,7 +5,15 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @student = Student.find(params[:id])
+     @student = Student.find(params[:id])
   end
 
-end
+  def new
+  end 
+  
+  def create
+    session[:form_params] = params.inspect
+    redirect_to new_student_path 
+  end 
+
+end 
